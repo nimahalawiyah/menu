@@ -13,7 +13,10 @@
 	<script src="menu.js"></script>
     </head>
     <body ng-Controller="menu">	    
-		<nav>
+		<header><div class="menu_bar">
+                    <a href="#" class="btn-menu"><span class="fas fa-bars"></span>Menu</a>
+                </div>
+            <nav>
                 <script type="text/ng-template" id="treeMenu">
                     <li class="submenu">
                     <a href="{{menu.url}}">{{menu.name}}<span class="fas fa-caret-down" ng-if="(menus | filter:{pid : menu.id}).length > 0"></span></a>
@@ -26,6 +29,7 @@
                     <li ng-repeat="menu in menus | filter:{pid : 0}" ng-include="'treeMenu'"></li>
                 </ul> 
             </nav>
+            </header>
  <div class="container" style="margin-top:20px;">		   
 		   <div ng-view></div>
 		   </div>
