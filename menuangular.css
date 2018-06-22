@@ -1,0 +1,126 @@
+*{
+    padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+body{
+    background:#fff;
+}
+.menu_bar{
+    display: none;
+}
+header{
+    width: 100%;
+}
+header nav{
+    background: rgb(5, 5, 179);
+    z-index: 1000;
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto;
+}
+header nav ul{
+    list-style: none;
+}
+header nav ul li{
+    display: inline-block;
+    position: relative;
+}
+header nav ul li:hover{
+    background: rgb(245, 117, 12);
+}
+header nav ul li a{
+    color: #fff;
+    display: block;
+    text-decoration: none;
+    padding: 20px;
+}
+header nav ul li a span{
+    margin-right: 10px;
+}
+header nav ul li:hover .children{
+    display: block;
+}
+header nav ul li .children{
+    display: none;
+    background:rgb(5, 5, 179);
+    position: absolute;
+    width: 150%;
+    z-index: 1000;
+}
+header nav ul li .children li{
+    display: block;
+    overflow: hidden;
+    border-bottom: 1px solid rgb(245, 117, 12);
+}
+header nav ul li .children li a{
+    display: block;
+}
+header nav ul li .children li a span{
+    float: right;
+    position: relative;
+    top: 3px;
+    margin-right: 0;
+    margin-left: 10px;
+}
+header nav ul li .fa-caret-down{
+    position: relative;
+    top:3px;
+    margin-right: 0;
+    margin-left: 10px;
+}
+@media screen and (max-width:800px){
+    body{
+        padding-top: 80px;
+    }
+    .menu_bar{
+        display: block;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        background: rgb(245, 117, 12);
+    }
+    .menu_bar .btn-menu{
+        display: block;
+        padding: 20px;
+        color: #fff;
+        overflow: hidden;
+        font-size: 25px;
+        font-weight: bold;
+        text-decoration: none;
+    }
+    .menu_bar span{
+       float: right;
+       font-size: 40px; 
+    }
+    header nav{
+        width: 80%;
+        height: calc(100%-80px);
+        position: fixed;
+        right: 100%;
+        margin: 0;
+        overflow: scroll;
+    }
+    header nav ul li{
+        display: block;
+        border-bottom: 1px solid rgb(245, 117, 12);
+    }
+    header nav ul li a{
+        display: block;
+    }
+    header nav ul li:hover .children{
+        display: none;
+    }
+    header nav ul li .children{
+        width: 100%;
+        position: relative;
+    }
+    header nav ul li .children li a{
+        margin-left: 20px;
+    }
+    header nav ul li .fa-caret-down{
+        float: right;
+    }
+}
