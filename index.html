@@ -5,14 +5,11 @@
     <meta charset="utf-8">
 	<title>Menu</title>          
 		   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">		  	
+    <meta charset="utf-8">	
+	<link rel="stylesheet" href="menuangular.css">		  	
     <script type="text/javascript" src="angular.min.js"></script>	
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		  <!-- bootstarp --><!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <!--bootstrap--> 
+	<script src="menu.js"></script>
 	
  <style>
                   a {
@@ -21,30 +18,19 @@
                 </style>
     </head>
     <body ng-Controller="menu">	    
-		 <nav class='navbar navbar-default navbar-fixed-top'>
-		 <div class='container'>
-		 <div class="navbar-header"> 
-		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example-navbar-collapse">
-		<span class="sr-only">Toggle navigation</span> 
-		<span class="icon-bar"></span>
-		<span class="icon-bar"></span> 
-		<span class="icon-bar"></span> 
-		</button> 
-		<a class="navbar-brand" href="">Dynamic Menu</a>
-		</div>
-		<div class="collapse navbar-collapse" id="example-navbar-collapse">			
-			<script type="text/ng-template" id="treeMenu">
-                    <a class="dropdown dropdown-toggle" data-toggle="dropdown" href="{{menu.Url}}">{{menu.name}}<span class="caret" ng-if="(menus | filter:{pid : menu.id}).length > 0"></span></a>
-                    <ul ng-if="(menus | filter:{pid : menu.id}).length > 0" class="dropdown-menu">
+		<nav>
+                <script type="text/ng-template" id="treeMenu">
+                    <li class="submenu">
+                    <a href="{{menu.url}}">{{menu.name}}<span class="fas fa-caret-down" ng-if="(menus | filter:{pid : menu.id}).length > 0"></span></a>
+                    <ul ng-if="(menus | filter:{pid : menu.id}).length > 0" class="children">
                         <li ng-repeat="menu in menus | filter:{pid : menu.id}" ng-include="'treeMenu'"></li>
                     </ul>
+                </li>
                 </script>
-                <ul class="nav navbar-nav">
+                <ul>
                     <li ng-repeat="menu in menus | filter:{pid : 0}" ng-include="'treeMenu'"></li>
-                </ul>
-		   </div>
-		   </div>		   
-		   </nav>  
+                </ul> 
+            </nav>
  <div class="container" style="margin-top:20px;">		   
 		   <div ng-view></div>
 		   </div>
@@ -70,13 +56,13 @@ $scope.menus=[
 {
     "id":3,
     "name":"Page 2",
-    "url":"#",
+    "url":"",
     "pid":0
 },
 {
     "id":4,
     "name":"Page 3",
-    "url":"#/page3",
+    "url":"",
     "pid":0
 },
 {
@@ -90,6 +76,18 @@ $scope.menus=[
     "name":"Sub Page 2.B",
     "url":"#/subpage2b",
     "pid":3
+},
+{
+    "id":7,
+    "name":"Sub Page 3.A",
+    "url":"#/subpage3a",
+    "pid":4
+},
+{
+    "id":8,
+    "name":"Sub Page 3.B",
+    "url":"#/subpage3b",
+    "pid":4
 }
 
 ];
